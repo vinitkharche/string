@@ -1,0 +1,85 @@
+package edu.java;
+
+import java.io.CharArrayReader;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("First String  " + args[0]);
+		System.out.println("Second String  " + args[1]);
+		
+		String str1 =args[0].toLowerCase();
+		String str2 =args[1].toLowerCase();
+		
+char[] charArray = str2.toCharArray();
+    	
+    	
+    	int i;
+    	int j;
+    		for(i=0;i<str2.length();i++)
+    		{
+    			for (j=i+1;j<str2.length();j++)
+    			{
+    			Character strtest=str2.charAt(i);
+    			Character strtest2=str2.charAt(j);
+    			if(strtest.equals(strtest2))
+    			{
+    				charArray[j]='*';
+    			}
+    			}
+    		}
+    		System.out.println(charArray);
+    		char[] newCharArray=new char[100];
+    		int k=0;
+    		for (i=0;i<charArray.length-1;i++)
+    		{
+    			if(charArray[i]!='*')
+    			{    				
+    				newCharArray[k]=charArray[i];
+    				k++;
+    			}
+    			
+    		} 
+    		
+    		String newstr=String.copyValueOf(newCharArray).trim();
+    		System.out.println(newstr);
+    		
+		
+		System.out.println("Is second string subset of first? :" +str1.contains(newstr.trim()));
+		
+		int index = 0;
+		int index2 = 0;
+    	int count = 0;
+    	int count2 = 0;
+    	
+    	String reverse = new StringBuffer(newstr).reverse().toString();
+    	
+    	while (index != -1) 
+    	{
+    		index = str1.indexOf(newstr, index);
+    		if (index != -1)
+    		{
+    			count++;
+    			index = index + newstr.length();
+    		}
+    	}
+    	System.out.println("Number of occurrences of "+newstr+" are : "+count);
+    	
+    	while (index2 != -1) 
+    	{
+    		index2 = str1.indexOf(reverse, index2);
+    		if (index2 != -1)
+    		{
+    			count2++;
+    			index2 = index2 + reverse.length();
+    		}
+    	}
+    	System.out.println("Number of occurrences of "+newstr+" and "+reverse+" are : "+(count+count2));
+		
+    	  	
+    	
+	}
+	
+
+}

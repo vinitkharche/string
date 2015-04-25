@@ -1,0 +1,54 @@
+package edu.maths;
+import java.util.Scanner;
+public class Overlap {
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		
+		System.out.println("Enter space seperated X and Y co-ordinate of first input--First point");
+		double i=sc.nextDouble();
+		double j=sc.nextDouble();
+		System.out.println("Enter space seperated X and Y co-ordinate of first input--Second point");
+		double k=sc.nextDouble();
+		double l=sc.nextDouble();
+		System.out.println("Enter space seperated X and Y co-ordinate of second input--First point");
+		double p=sc.nextDouble();
+		double q=sc.nextDouble();
+		System.out.println("Enter space seperated X and Y co-ordinate of second input--Second point");
+		double r=sc.nextDouble();
+		double s=sc.nextDouble();
+		
+		System.out.println(quadrant(i,j,k,l,p,q,r,s));	
+		sc.close();
+	}
+	
+	public static String quadrant (double i,double j,double k,double l,double p,double q,double r,double s)
+	{
+		
+		double min1=Math.min(Math.min(Math.min(i,j),k),l);
+		double max1=Math.max(Math.max(Math.max(i,j),k),l);
+		
+		double min2=Math.min(Math.min(Math.min(p,q),r),s);
+		double max2=Math.max(Math.max(Math.max(p,q),r),s);
+			
+		if(((min1 <= p && p <= max1)&&(min1 <= q && q <= max1))||
+		   ((min1 <= r && r <= max1)&&(min1 <= s && s <= max1))|| 
+		   ((min1 <= r && r <= max1)&&(min1 <= q && q <= max1))||
+		   ((min1 <= p && p <= max1)&&(min1 <= s && s <= max1)))
+		{
+			return "Overlapping";
+		}
+		else if(((min2 <= i && i <= max2)&&(min2 <= j && j <= max2))||
+				   ((min2 <= k && k <= max2)&&(min2 <=l && s <= max2))|| 
+				   ((min2 <= k && k <= max2)&&(min2 <=j && q <= max2))||
+				   ((min2 <= i && i <= max2)&&(min2 <=l && s <= max2)))
+		{
+		return "Overlapping";	
+		}
+		else 
+		{
+		return "Not Overlapping";	
+		}
+			
+	}
+	
+}

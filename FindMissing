@@ -1,0 +1,38 @@
+package edu.maths;
+
+import java.util.Scanner;
+
+public class FindMissing {
+
+	public static void main(String[] args) {
+		
+		Scanner sc= new Scanner(System.in);
+			
+		System.out.println("Enter the number of digits to be scanned");
+		int i=sc.nextInt();
+		double[] input = new double[i];	
+		System.out.println("Enter the arithematic sequence of "+i+" numbers");
+		
+		for (int x=0;x<i;x++)
+		{
+		input[x]=sc.nextDouble();
+		}
+		sc.close();
+
+		double Diff=(input[i-1]-input[0])/i;
+		double sum=0;
+		double sum1=0;
+		for(int x=0; x<=i;x++)
+		{
+			if(x<i)
+			{
+			sum=sum+input[x];
+			}
+			sum1=sum1+(Diff*x)+input[0];
+		}
+
+			System.out.println("missing number in series : "+(sum1-sum));
+		
+	}
+
+}

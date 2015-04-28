@@ -10,27 +10,30 @@ public class FindMissing {
 			
 		System.out.println("Enter the number of digits to be scanned");
 		int i=sc.nextInt();
-		double[] input = new double[i];	
+		int[] input = new int[i];	
+		
 		System.out.println("Enter the arithematic sequence of "+i+" numbers");
 		
 		for (int x=0;x<i;x++)
 		{
-		input[x]=sc.nextDouble();
+		input[x]=sc.nextInt();
 		}
 		sc.close();
 
-		double Diff=(input[i-1]-input[0])/i;
-		double sum=0;
-		double sum1=0;
+		int Diff=(input[i-1]-input[0])/i;
+		int sum=0;
+		int sum1=0;
+		
 		for(int x=0; x<=i;x++)
 		{
 			if(x<i)
 			{
 			sum=sum+input[x];
+			
 			}
 			sum1=sum1+(Diff*x)+input[0];
 		}
-
+		
 			System.out.println("missing number in series : "+(sum1-sum));
 		
 	}
